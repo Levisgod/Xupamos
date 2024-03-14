@@ -29,7 +29,7 @@ return interaction?.reply({ content: "Rate Limited.", ephemeral: true })
             fs.readdir(config.commandsDir, (err, files) => {
             if (err) throw err;
             files.forEach(async (f) => {
-            let props = require(`.${config.commandsDir}.${f}`);
+            let props = require(`.${config.commandsDir}/${f}`);
             if (interaction.commandName === props.name) {
             try {
             let data = await db?.musicbot?.findOne({ guildID: interaction?.guild?.id })
